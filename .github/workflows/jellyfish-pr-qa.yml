@@ -1,0 +1,14 @@
+name: Jellyfish PR wakeup QA
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+permissions: {}
+jobs:
+  wakeup-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Leave time to register the wakeup
+        run: sleep 180
+      - name: Confirm fixture completed
+        run: echo "Jellyfish PR wakeup QA passed"
